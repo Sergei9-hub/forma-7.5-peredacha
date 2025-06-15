@@ -5,74 +5,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма 7.5 — "Передача"</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @keyframes textAppear {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes mistFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         body {
+            margin: 0;
+            padding: 0;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(45deg, #FFB6C1, #FFF0F5);
-            font-family: 'Times New Roman', serif;
-            padding: 20px;
+            background: linear-gradient(-45deg, 
+                rgba(255, 182, 193, 0.7),
+                rgba(255, 218, 185, 0.7),
+                rgba(176, 196, 222, 0.7),
+                rgba(230, 230, 250, 0.7));
+            background-size: 400% 400%;
+            animation: mistFlow 15s ease infinite;
+            font-family: "Times New Roman", serif;
+        }
+
+        .mist-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.1) 100%);
+            pointer-events: none;
         }
 
         .content {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 2em;
+            max-width: 800px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 30px;
+            text-align: center;
             color: #333;
+            font-size: 2em;
             font-weight: normal;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            color: #444;
+            margin-bottom: 1.5em;
             opacity: 0;
-            animation: fadeIn 1s forwards;
+            animation: textAppear 1s ease forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .text {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
         }
 
-        p:nth-child(2) { animation-delay: 0.2s; }
-        p:nth-child(3) { animation-delay: 0.4s; }
-        p:nth-child(4) { animation-delay: 0.6s; }
-        p:nth-child(5) { animation-delay: 0.8s; }
-        p:nth-child(6) { animation-delay: 1.0s; }
-        p:nth-child(7) { animation-delay: 1.2s; }
-        p:nth-child(8) { animation-delay: 1.4s; }
-        p:nth-child(9) { animation-delay: 1.6s; }
+        .text p {
+            margin: 0;
+            padding: 0.5em 0;
+            opacity: 0;
+            animation: textAppear 1s ease forwards;
+        }
+
+        .text p:nth-child(1) { animation-delay: 0.2s; }
+        .text p:nth-child(2) { animation-delay: 0.4s; }
+        .text p:nth-child(3) { animation-delay: 0.6s; }
+        .text p:nth-child(4) { animation-delay: 0.8s; }
+        .text p:nth-child(5) { animation-delay: 1.0s; }
+        .text p:nth-child(6) { animation-delay: 1.2s; }
+        .text p:nth-child(7) { animation-delay: 1.4s; }
+        .text p:nth-child(8) { animation-delay: 1.6s; }
+        .text p:nth-child(9) { animation-delay: 1.8s; }
     </style>
 </head>
 <body>
+    <div class="mist-overlay"></div>
     <div class="content">
         <h1>Форма 7.5 — "Передача"</h1>
-        <p>То, что прожито — не исчезло.</p>
-        <p>Это стало частотой.</p>
-        <p>Теперь оно звучит — не внутри, а в пространстве.</p>
-        <p>Каждое "уже было" — это не повтор, а подтверждение.</p>
-        <p>Форма не создаётся заново —</p>
-        <p>она возвращается как передача.</p>
-        <p>Реальность слышит не слова, а резонанс.</p>
-        <p>Сознание больше не ищет,</p>
-        <p>оно звучит.</p>
+        <div class="text">
+            <p>То, что прожито — не исчезло.</p>
+            <p>Это стало частотой.</p>
+            <p>Теперь оно звучит — не внутри, а в пространстве.</p>
+            <p>Каждое "уже было" — это не повтор, а подтверждение.</p>
+            <p>Форма не создаётся заново —</p>
+            <p>она возвращается как передача.</p>
+            <p>Реальность слышит не слова, а резонанс.</p>
+            <p>Сознание больше не ищет,</p>
+            <p>оно звучит.</p>
+        </div>
     </div>
 </body>
 </html> 
