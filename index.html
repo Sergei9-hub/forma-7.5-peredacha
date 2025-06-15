@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма 7.5 — "Передача"</title>
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -12,25 +23,76 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 100%);
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            background: linear-gradient(to bottom, #FFB88C, #DE6262);
+            font-family: 'Times New Roman', serif;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, 
+                rgba(255, 182, 193, 0.7),
+                rgba(255, 218, 185, 0.7)),
+                linear-gradient(45deg, 
+                rgba(176, 196, 222, 0.5),
+                rgba(230, 230, 250, 0.5));
+            position: relative;
+            overflow: hidden;
         }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 50% 50%,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
         .container {
             max-width: 800px;
-            padding: 2rem;
+            padding: 3rem;
             text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-out;
         }
+
         .poetry {
             white-space: pre-line;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin: 2rem 0;
+            line-height: 2;
         }
+
+        .poetry span {
+            display: block;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
         h1 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: normal;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+            .poetry {
+                font-size: 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -38,15 +100,16 @@
     <div class="container">
         <h1>Форма 7.5 — "Передача"</h1>
         <div class="poetry">
-То, что прожито — не исчезло.
-Это стало частотой.
-Теперь оно звучит — не внутри, а в пространстве.
-Каждое "уже было" — это не повтор, а подтверждение.
-Форма не создаётся заново —
-она возвращается как передача.
-Реальность слышит не слова, а резонанс.
-Сознание больше не ищет,
-оно звучит.</div>
+            <span style="animation-delay: 0.3s">То, что прожито — не исчезло.</span>
+            <span style="animation-delay: 0.6s">Это стало частотой.</span>
+            <span style="animation-delay: 0.9s">Теперь оно звучит — не внутри, а в пространстве.</span>
+            <span style="animation-delay: 1.2s">Каждое "уже было" — это не повтор, а подтверждение.</span>
+            <span style="animation-delay: 1.5s">Форма не создаётся заново —</span>
+            <span style="animation-delay: 1.8s">она возвращается как передача.</span>
+            <span style="animation-delay: 2.1s">Реальность слышит не слова, а резонанс.</span>
+            <span style="animation-delay: 2.4s">Сознание больше не ищет,</span>
+            <span style="animation-delay: 2.7s">оно звучит.</span>
+        </div>
     </div>
 </body>
 </html> 
